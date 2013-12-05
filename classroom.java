@@ -33,16 +33,24 @@ class classroom {
 	}
 
 	public static void students() {
-		int student;
-		File students = new File("class.csv");
-		Scanner scan = new Scanner(students);
-		student = scan.nextInt();
-		try() {
+		String student;
 
-		}catch(){
+		
+
+		try {
+			File students = new File("class.csv");
+			Scanner scan = new Scanner(students);
+			student = scan.next();
+			String[] names = new String[]{student};
+			for (int i=0; i<names.length; i++) {
+				System.out.println(names[i]);
+			}
+			
+			}catch(IOException e){
+				System.err.println("FileNotFoundException: " + e.getMessage());
+			}
 
 		}
-	}
 
 	public static void random() {
 	 	// Random randomName = new Random();
