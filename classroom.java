@@ -1,8 +1,10 @@
 import java.util.Scanner;
 import java.util.Random;
 import java.io.*;
+import java.util.Arrays;
 
-class classroom {
+class classroom{
+
 	public static void main(String[] args) throws IOException {
 	//imports file
 		System.out.println();
@@ -27,42 +29,59 @@ class classroom {
 			groups();
 		}else if(choice == 4) {
 			exit();
-		}
-
-		
+		}	
 	}
 
 	public static void students() {
 		String student;
-
-		
-
 		try {
 			File students = new File("class.csv");
 			Scanner scan = new Scanner(students);
-			student = scan.next();
-			String[] names = new String[]{student};
-			for (int i=0; i<names.length; i++) {
-				System.out.println(names[i]);
+			while(scan.hasNext()) {
+				student = scan.next();
+				String[] names = new String[]{student};
+				for (int i=0; i<names.length; i++) {
+					System.out.println(names[i]);
+				}
 			}
-			
-			}catch(IOException e){
+		
+		}catch(IOException e){
 				System.err.println("FileNotFoundException: " + e.getMessage());
-			}
-
 		}
-
-	public static void random() {
-	 	// Random randomName = new Random();
-	 	// int randomName = r.nextInt(students.length);
-	 	// return randomName;
+		
 	}
+
+	// public static String random(String student) {
+	// 	String randomName;
+	//  	Random random = new Random();
+	//  	for (int i=0; i<names.length; i++) {
+	//  		randomName = random.next(names[i]);
+	//  		String[] names = new String[]{student};
+	//  	}
+	 	
+	//  	return randomName;
+	// }
 	
 	public static void groups() {
-
+		try {
+			String student;
+			File students = new File("class.csv");
+			Scanner scan = new Scanner(students);
+				while(scan.hasNext()) {
+					student = scan.next();
+					String[] names = new String[]{student};
+					for (int i=0; i<names.length; i++) {
+						System.out.println(names[3]);
+					}
+				}
+		}catch(IOException e) {
+			System.err.println("FileNotFoundException: " + e.getMessage());
+		}
+		
 	}
 
 	public static void exit() {
+		System.out.println("Thank you for using EZSchool!");
 		System.exit(0);
 	}
 }
